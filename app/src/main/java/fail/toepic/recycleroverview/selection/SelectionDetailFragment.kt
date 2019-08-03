@@ -43,12 +43,13 @@ class SelectionDetailFragment : Fragment() {
 
         var selectionPredicate: SelectionTracker.SelectionPredicate<Long>? = null
         SelectionDetailAdapter.isHotSpot = false
+        var isObserver = false
         when(key){
             "basic" -> {
                 //UNIT
             }
             "Selection Observer" ->{
-                setObserver()
+                isObserver = true
             }
             "single selection"-> {
                 selectionPredicate = SelectionPredicates.createSelectSingleAnything<Long>()
@@ -78,6 +79,10 @@ class SelectionDetailFragment : Fragment() {
              tracker = builder.build()
 
             adapter.tracker = tracker
+        }
+
+        if (isObserver) {
+            setObserver()
         }
 
         adapter.submitList(HTML5ColorsRepository.colorInfos)
