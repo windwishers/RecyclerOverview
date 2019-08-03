@@ -10,10 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.selection.ItemKeyProvider
-import androidx.recyclerview.selection.SelectionPredicates
-import androidx.recyclerview.selection.SelectionTracker
-import androidx.recyclerview.selection.StorageStrategy
+import androidx.recyclerview.selection.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fail.toepic.colorinfos.repository.HTML5ColorsRepository
@@ -67,8 +64,7 @@ class SelectionDetailFragment : Fragment() {
              val builder = SelectionTracker.Builder<Long>(
                  "Selection",
                  list,
-//                    StableIdKeyProvider(list), //  androidx.recyclerview.widget.RecyclerView$ViewHolder.getAdapterPosition() 이 난다.
-                 KeyProvider(list),
+                 StableIdKeyProvider(list),
                  SelectionDetailLookUp(list),
                  StorageStrategy.createLongStorage()
              )
@@ -129,61 +125,6 @@ class SelectionDetailFragment : Fragment() {
             }
 
         }
-    }
-
-}
-
-/**  StableIdKeyProvider 스테이블 키 프로바이더와 코드가 거의 동일 함.
- * 다만 androidx.recyclerview.widget.RecyclerView$ViewHolder.getAdapterPosition()
- * 에서 널포인트익셉션이 나는 문제로 널체크를 추가한 버전이다.  */
-class KeyProvider(val recyclerView: RecyclerView) : ItemKeyProvider<Long>(SCOPE_CACHED) {
-
-    private val mPositionToKey = SparseArray<Long>()
-    @SuppressLint("UseSparseArrays")
-    private val mKeyToPosition = HashMap<Long, Int>()
-
-
-    init {
-        recyclerView.addOnChildAttachStateChangeListener(
-            object : RecyclerView.OnChildAttachStateChangeListener {
-                override fun onChildViewAttachedToWindow(view: View) {
-                    onAttached(view)
-                }
-
-                override fun onChildViewDetachedFromWindow(view: View) {
-                    onDetached(view)
-                }
-            }
-        )
-    }
-
-    internal /* synthetic access */ fun onAttached(view: View) {
-        val holder = recyclerView.findContainingViewHolder(view)
-        val position = holder?.adapterPosition  ?: RecyclerView.NO_POSITION
-        val id = holder?.itemId ?: RecyclerView.NO_ID
-        if (position != RecyclerView.NO_POSITION && id != RecyclerView.NO_ID) {
-            mPositionToKey.put(position, id)
-            mKeyToPosition[id] = position
-        }
-    }
-
-    internal /* synthetic access */ fun onDetached(view: View) {
-        val holder = recyclerView.findContainingViewHolder(view)
-        val position = holder?.adapterPosition ?: RecyclerView.NO_POSITION
-        val id = holder?.itemId ?: RecyclerView.NO_ID
-        if (position != RecyclerView.NO_POSITION && id != RecyclerView.NO_ID) {
-            mPositionToKey.delete(position)
-            mKeyToPosition.remove(id)
-        }
-    }
-    override fun getKey(position: Int): Long? {
-        return mPositionToKey.get(position, null)
-    }
-
-    override fun getPosition(key: Long): Int {
-        return if (mKeyToPosition.containsKey(key)) {
-            mKeyToPosition[key]!!
-        } else RecyclerView.NO_POSITION
     }
 
 }
