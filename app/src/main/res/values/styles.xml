@@ -1,11 +1,38 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="background">@color/colorBackground</item>
+        <item name="color">@color/color</item>
+        <item name="android:textColor">@color/color</item>
+    </style>
+
+    <style name="AppTheme.title">
+        <item name="android:textSize" >32sp</item>
+        <item name="android:padding">24dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="AppTheme.button">
+        <item name="android:textSize" >24sp</item>
+        <item name="android:textColor">@color/ic_launcher_background</item>
+        <item name="android:background">@drawable/main_button_ripple</item>
+        <item name="android:padding">24dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.button.list">
+        <item name="android:layout_marginTop" >8dp</item>
+        <item name="android:layout_marginBottom" >8dp</item>
+        <item name="android:layout_marginStart" >32dp</item>
+        <item name="android:layout_marginEnd" >32dp</item>
     </style>
 
 </resources>

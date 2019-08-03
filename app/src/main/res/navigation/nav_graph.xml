@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/selectionFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="fail.toepic.recycleroverview.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list"
+         />
+
+    <fragment
+        android:id="@+id/basicFragment"
+        android:name="fail.toepic.recycleroverview.basic.BasicFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_basic_v2" />
+    <action
+        android:id="@+id/move_basic"
+        app:destination="@id/basicFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+
+    <fragment
+        android:id="@+id/basicSimpleFragment"
+        android:name="fail.toepic.recycleroverview.basic_simple.BasicSimpleFragment"
+        android:label="BasicSimpleFragment"
+        tools:layout="@layout/fragment_basic_simple"/>
+
+    <action
+        android:id="@+id/move_basic_simple"
+        app:destination="@id/basicSimpleFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+
+    <action
+        android:id="@+id/move_selection"
+        app:destination="@id/selectionFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="fail.toepic.recycleroverview.selection.SelectionFragment"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection" >
+        <action
+            android:id="@+id/move_detail"
+            app:destination="@id/selectionDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectionDetailFragment"
+        android:name="fail.toepic.recycleroverview.selection.SelectionDetailFragment"
+        android:label="fragment_selection_detail"
+        tools:layout="@layout/fragment_selection_detail" >
+        <argument
+            android:name="key"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>

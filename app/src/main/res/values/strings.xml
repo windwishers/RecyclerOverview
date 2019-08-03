@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">RecyclerOverview</string>
+    <string name="app_name">Recycler Overview</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recyclerview_basic">basic</string>
+    <string name="recyclerview_selection">Selection</string>
+    <string name="recyclerview_extend">extends</string>
+    <string name="recyclerview_basic_title">RecyclerView Basic</string>
+    <string name="simple">simple</string>
+    <string name="basic_simple">basic simple</string>
 </resources>
