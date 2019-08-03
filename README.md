@@ -4,7 +4,7 @@ RECYCLER OVERVIEW
 취소선은 미적용 입니다.  
 
 - BASIC
-    - ~imple
+    - Simple
     - ~~LayoutManager~~
     - ~~ItemAnimator~~
     - ~~ItemDecoration~~
