@@ -20,7 +20,7 @@ object MenuStructureRepository {
                 Item.getButton("Selection Observer",true),
                 Item.getButton("single selection",true),
                 Item.getButton("multi Selection",true),
-                Item.getButton("Selection Host Spot",true)
+                Item.getButton("Selection HotSpot",true)
             ))
         }
     }

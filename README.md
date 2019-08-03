@@ -1,9 +1,10 @@
 RECYCLER OVERVIEW
 ---
 리사이클러에 대한 일련의 테스트 코드 목록입니다. 
+취소선은 미적용 입니다.  
 
-- ~~BASIC~~
-    - ~~simple~~
+- BASIC
+    - ~imple
     - ~~LayoutManager~~
     - ~~ItemAnimator~~
     - ~~ItemDecoration~~
@@ -19,7 +20,7 @@ RECYCLER OVERVIEW
     - Selection Observer
     - single selection
     - multi Selection
-    - Selection Host Sport
+    - Selection HotSpot
 - ~~CustomLayoutManager~~
 - ~~Paging~~
 

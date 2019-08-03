@@ -54,7 +54,7 @@ class SelectionDetailFragment : Fragment() {
             "multi Selection" ->{
                 selectionPredicate = SelectionPredicates.createSelectAnything<Long>()
             }
-            "Selection Host Spot"->{
+            "Selection HotSpot"->{
                 SelectionDetailAdapter.isHotSpot = true
             }
         }

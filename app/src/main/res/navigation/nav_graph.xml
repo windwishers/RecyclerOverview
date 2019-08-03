@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/selectionFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/listFragment"
@@ -45,7 +45,7 @@
         android:id="@+id/selectionFragment"
         android:name="fail.toepic.recycleroverview.selection.SelectionFragment"
         android:label="fragment_selection"
-        tools:layout="@layout/fragment_selection" >
+        tools:layout="@layout/fragment_basic_v2" >
         <action
             android:id="@+id/move_detail"
             app:destination="@id/selectionDetailFragment"
